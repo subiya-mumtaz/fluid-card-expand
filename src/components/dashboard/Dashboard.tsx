@@ -5,10 +5,12 @@ export const Dashboard = () => {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const handleExpand = (cardType: string) => {
+    console.log('Expanding card:', cardType);
     setExpandedCard(cardType);
   };
 
   const handleCollapse = () => {
+    console.log('Collapsing all cards');
     setExpandedCard(null);
   };
 

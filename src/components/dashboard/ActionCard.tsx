@@ -17,7 +17,10 @@ interface ActionCardProps {
 export const ActionCard = ({ title, description, type, isExpanded, onExpand, onCollapse }: ActionCardProps) => {
   const [dragOver, setDragOver] = useState(false);
 
+  console.log(`Card ${type}: isExpanded =`, isExpanded);
+
   const handleCardClick = () => {
+    console.log(`Card ${type} clicked, currently expanded:`, isExpanded);
     if (!isExpanded) {
       onExpand();
     }
