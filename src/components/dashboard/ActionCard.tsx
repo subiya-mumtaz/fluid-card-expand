@@ -17,10 +17,7 @@ interface ActionCardProps {
 export const ActionCard = ({ title, description, type, isExpanded, onExpand, onCollapse }: ActionCardProps) => {
   const [dragOver, setDragOver] = useState(false);
 
-  console.log(`Card ${type}: isExpanded =`, isExpanded);
-
   const handleCardClick = () => {
-    console.log(`Card ${type} clicked, currently expanded:`, isExpanded);
     if (!isExpanded) {
       onExpand();
     }
@@ -130,7 +127,9 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
   return (
     <Card
       className={`p-6 cursor-pointer transition-all duration-300 hover:shadow-lg ${
-        isExpanded ? "shadow-xl border-primary/40 border-2" : "hover:border-border/60"
+        isExpanded 
+          ? "shadow-xl border-primary/40 border-2 min-h-fit" 
+          : "hover:border-border/60 h-auto"
       }`}
       onClick={handleCardClick}
     >

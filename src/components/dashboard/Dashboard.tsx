@@ -5,12 +5,10 @@ export const Dashboard = () => {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const handleExpand = (cardType: string) => {
-    console.log('Expanding card:', cardType);
     setExpandedCard(cardType);
   };
 
   const handleCollapse = () => {
-    console.log('Collapsing all cards');
     setExpandedCard(null);
   };
 
@@ -39,7 +37,7 @@ export const Dashboard = () => {
         </div>
 
         {/* Action Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full items-start">
           <ActionCard
             title="Send AR Analyst Email"
             description="Run today's incremental email process"
