@@ -127,7 +127,7 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
   return (
     <Card
       className={`p-6 cursor-pointer transition-all duration-300 hover:shadow-lg ${
-        isExpanded ? "col-span-2 shadow-xl border-primary/40 border-2" : "hover:border-border/60"
+        isExpanded ? "shadow-xl border-primary/40 border-2" : "hover:border-border/60"
       }`}
       onClick={handleCardClick}
     >
