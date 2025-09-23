@@ -1,6 +1,17 @@
+import { useState } from "react";
 import { ActionCard } from "./ActionCard";
 
 export const Dashboard = () => {
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+
+  const handleExpand = (cardType: string) => {
+    setExpandedCard(cardType);
+  };
+
+  const handleCollapse = () => {
+    setExpandedCard(null);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -31,16 +42,25 @@ export const Dashboard = () => {
             title="Send AR Analyst Email"
             description="Run today's incremental email process"
             type="email"
+            isExpanded={expandedCard === "email"}
+            onExpand={() => handleExpand("email")}
+            onCollapse={handleCollapse}
           />
           <ActionCard
             title="Summarize Transcripts"
             description="Upload a file to generate a summary"
             type="transcript"
+            isExpanded={expandedCard === "transcript"}
+            onExpand={() => handleExpand("transcript")}
+            onCollapse={handleCollapse}
           />
           <ActionCard
             title="Analyze Youtube Transcript"
             description="Paste a URL for a transcript + keywords"
             type="youtube"
+            isExpanded={expandedCard === "youtube"}
+            onExpand={() => handleExpand("youtube")}
+            onCollapse={handleCollapse}
           />
         </div>
       </div>

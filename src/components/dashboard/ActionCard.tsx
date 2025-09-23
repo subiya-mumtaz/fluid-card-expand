@@ -9,20 +9,22 @@ interface ActionCardProps {
   title: string;
   description: string;
   type: "email" | "transcript" | "youtube";
+  isExpanded: boolean;
+  onExpand: () => void;
+  onCollapse: () => void;
 }
 
-export const ActionCard = ({ title, description, type }: ActionCardProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+export const ActionCard = ({ title, description, type, isExpanded, onExpand, onCollapse }: ActionCardProps) => {
   const [dragOver, setDragOver] = useState(false);
 
   const handleCardClick = () => {
     if (!isExpanded) {
-      setIsExpanded(true);
+      onExpand();
     }
   };
 
   const handleClose = () => {
-    setIsExpanded(false);
+    onCollapse();
   };
 
   const renderExpandedContent = () => {
@@ -125,7 +127,7 @@ export const ActionCard = ({ title, description, type }: ActionCardProps) => {
   return (
     <Card
       className={`p-6 cursor-pointer transition-all duration-300 hover:shadow-lg ${
-        isExpanded ? "col-span-2 shadow-xl" : ""
+        isExpanded ? "col-span-2 shadow-xl border-primary/40 border-2" : "hover:border-border/60"
       }`}
       onClick={handleCardClick}
     >
