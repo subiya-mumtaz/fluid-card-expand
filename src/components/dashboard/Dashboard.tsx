@@ -16,12 +16,7 @@ export const Dashboard = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="flex items-center justify-between p-6 pb-0">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-full bg-brand-blue flex items-center justify-center">
-            <span className="text-white text-sm font-bold">IR</span>
-          </div>
-          <span className="font-medium text-foreground">Investor Relations</span>
-        </div>
+        <span className="font-medium text-foreground">Investor Relations</span>
         <div className="h-8 w-8 rounded-full bg-muted flex items-center justify-center">
           <span className="text-xs text-muted-foreground font-medium">IR</span>
         </div>
