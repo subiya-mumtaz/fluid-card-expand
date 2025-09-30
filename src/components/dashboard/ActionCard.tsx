@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Upload, X, FileText } from "lucide-react";
+import { Upload, X, FileText, CheckCircle } from "lucide-react";
 
 interface ActionCardProps {
   title: string;
@@ -16,6 +16,7 @@ interface ActionCardProps {
 
 export const ActionCard = ({ title, description, type, isExpanded, onExpand, onCollapse }: ActionCardProps) => {
   const [dragOver, setDragOver] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
 
   const handleCardClick = () => {
     if (!isExpanded) {
@@ -24,7 +25,12 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
   };
 
   const handleClose = () => {
+    setEmailSent(false);
     onCollapse();
+  };
+
+  const handleSendEmail = () => {
+    setEmailSent(true);
   };
 
   const renderExpandedContent = () => {
@@ -32,12 +38,26 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
       case "email":
         return (
           <div className="mt-6 space-y-4">
-            <div className="flex justify-end gap-2">
-              <Button variant="outline" onClick={handleClose}>
-                Close
-              </Button>
-              <Button>Send Email</Button>
-            </div>
+            {emailSent ? (
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-green-600">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Email sent successfully</span>
+                </div>
+                <div className="flex justify-end">
+                  <Button variant="outline" onClick={handleClose}>
+                    Close
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button onClick={handleSendEmail}>Send Email</Button>
+              </div>
+            )}
           </div>
         );
 
