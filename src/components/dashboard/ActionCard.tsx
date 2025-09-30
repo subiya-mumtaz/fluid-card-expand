@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Upload, X, FileText, CheckCircle, Download, Trash2 } from "lucide-react";
+import { Upload, X, FileText, Check, Download, Trash2 } from "lucide-react";
 
 interface ActionCardProps {
   title: string;
@@ -62,7 +62,7 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
               <div className="space-y-4">
                 <div className="flex items-center gap-2 p-3 border border-border rounded-lg bg-background">
                   <div className="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="h-3 w-3 text-white" />
+                    <Check className="h-3 w-3 text-white stroke-[3]" />
                   </div>
                   <span className="text-sm font-bold text-foreground">Email sent successfully</span>
                 </div>
@@ -90,7 +90,7 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
               <div className="space-y-4">
                 <div className="flex items-center gap-2 p-3 border border-border rounded-lg bg-background">
                   <div className="h-5 w-5 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle className="h-3 w-3 text-white" />
+                    <Check className="h-3 w-3 text-white stroke-[3]" />
                   </div>
                   <span className="text-sm font-bold text-foreground">Summary generated successfully</span>
                   <Button variant="ghost" size="sm" className="ml-auto">
@@ -107,7 +107,7 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
               <>
                 <div className="text-sm font-medium text-foreground mb-3">Upload Files</div>
                 {uploadedFile ? (
-                  <div className="flex items-center gap-2 p-3 border border-border rounded-lg bg-accent">
+                  <div className="flex items-center gap-2 p-3 border border-border border-b-4 border-b-green-500 rounded-lg bg-accent">
                     <FileText className="h-5 w-5 text-muted-foreground" />
                     <span className="text-sm text-foreground flex-1 truncate">{uploadedFile.name}</span>
                     <Button 
