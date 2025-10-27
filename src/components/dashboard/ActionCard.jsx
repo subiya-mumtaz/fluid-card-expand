@@ -5,19 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Upload, X, FileText, Check, Download, Trash2 } from "lucide-react";
 
-interface ActionCardProps {
-  title: string;
-  description: string;
-  type: "email" | "transcript" | "youtube";
-  isExpanded: boolean;
-  onExpand: () => void;
-  onCollapse: () => void;
-}
-
-export const ActionCard = ({ title, description, type, isExpanded, onExpand, onCollapse }: ActionCardProps) => {
+export const ActionCard = ({ title, description, type, isExpanded, onExpand, onCollapse }) => {
   const [dragOver, setDragOver] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadedFile, setUploadedFile] = useState(null);
   const [summaryGenerated, setSummaryGenerated] = useState(false);
 
   const handleCardClick = () => {
@@ -37,7 +28,7 @@ export const ActionCard = ({ title, description, type, isExpanded, onExpand, onC
     setEmailSent(true);
   };
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e) => {
     const file = e.target.files?.[0];
     if (file) {
       setUploadedFile(file);

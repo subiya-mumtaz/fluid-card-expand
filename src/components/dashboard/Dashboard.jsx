@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ActionCard } from "./ActionCard";
 
 export const Dashboard = () => {
-  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [expandedCard, setExpandedCard] = useState(null);
 
-  const handleExpand = (cardType: string) => {
+  const handleExpand = (cardType) => {
     setExpandedCard(cardType);
   };
 
